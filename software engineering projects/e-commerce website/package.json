@@ -12,7 +12,7 @@
   "dependencies": {
     "ejs": "^3.1.10",
     "express": "^4.19.2",
-    "expres-session":"^1.17.3",
+    "express-session":"^1.17.3",
     "googleapis": "^144.0.0",
     "passport":"^0.7.0",
     "passport-local":"^1.0.0",
