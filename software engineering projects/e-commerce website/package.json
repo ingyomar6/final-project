@@ -12,7 +12,10 @@
   "dependencies": {
     "ejs": "^3.1.10",
     "express": "^4.19.2",
+    "expres-session":"^1.17.3",
     "googleapis": "^144.0.0",
+    "passport":"^0.7.0",
+    "passport-local":"^1.0.0",
     "nodemailer": "^6.9.16",
     "pg": "^8.13.1"
   }
