@@ -183,7 +183,7 @@ app.get("/login/admin", async (req,res)=>{
 //loggingout
 //done
 
-pp.post("/logout", (req, res) => {
+app.post("/logout", (req, res) => {
   req.session.destroy((err) => {
     if (err) {
       return res.redirect("/");
