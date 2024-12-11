@@ -2,6 +2,8 @@ import express from "express";
 import bodyParser from "body-parser";
 import pg from "pg";
 import nodemailer from "nodemailer";
+import session from "express-session";
+
 
 
 let port = 3000;
@@ -17,6 +19,13 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
+
+app.use(session({
+  secret: 'your-secret-key', 
+  resave: false,    
+  saveUninitialized: true,   
+  cookie: { secure: false }  
+}));
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -56,8 +65,11 @@ async function inventoryDB() {
 
 app.get("/", async (req, res) => {
   const inventory =await inventoryDB();
+  login = req.session.login || false;  
+  const username = req.session.username; 
+  admin = req.session.admin || false; 
   if (login===true){
-    res.render("home.ejs", { login: login , inventory:inventory, username: usernameCheck, admin:admin});
+    res.render("home.ejs", { login: login , inventory:inventory, username: username, admin:admin});
   } else{
     res.render("home.ejs", { login: login , inventory:inventory,admin:admin});
   }
@@ -78,17 +90,18 @@ app.post("/Login", async (req,res)=>{
   const userSearch = userList.findIndex(u => u.username === usernameCheck && u.password==passwordCheck);
 
   if(userSearch !==-1){
-    login= true;
+    req.session.login=true;
+    req.session.username = usernameCheck;
     attempt= "success";
     if(userList[userSearch].id===0){
-      admin=true;
+      req.session.admin=true;
       res.redirect("/login/admin");
     }else{
       res.redirect("/");
     }
     } else{
     attempt="failed";
-    login= false;
+    req.session.login= false;
     res.redirect("/Login");
   }
 
@@ -163,18 +176,21 @@ app.post("/cart/:username/add", async (req,res) =>{
 
 app.get("/login/admin", async (req,res)=>{
   const inventory =await inventoryDB();
-  res.render("adminAccess.ejs", {inventory:inventory, login:login, admin:admin})
+  res.render("adminAccess.ejs", {inventory:inventory, login:req.session.login, admin:req.session.admin})
 
 })
 
 //loggingout
 //done
 
-app.post("/logout",(req,res)=>{
-  login=false;
-  admin=false;
-  res.redirect("/");
-})
+pp.post("/logout", (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      return res.redirect("/");
+    }
+    res.redirect("/"); 
+  });
+});
 
 //page to get info for new item admin wants to add to the database
 //works
@@ -254,7 +270,7 @@ app.post("/login/admin/delete/:id", async (req,res)=>{
 
 app.get("/cart/:username/checkout", async(req,res)=>{
   const inventory =await inventoryDB();
-  const currentUser = req.params.username;
+  const currentUser = req.session.username;
   try{
     const fetchUserCart= await db.query("SELECT cart FROM users WHERE username = $1", [currentUser]);
     let UserCart = fetchUserCart.rows[0].cart || [];
