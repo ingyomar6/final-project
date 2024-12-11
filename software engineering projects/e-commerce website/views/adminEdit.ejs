@@ -1,0 +1,22 @@
+<%- include("partials/header.ejs") %>
+<header>
+    <link rel="stylesheet" href="../public/styles/home.css">
+    <link rel="stylesheet" href="../public/styles/post.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</header>
+<body class="body">
+
+    <div class="postSection">
+        <form action="/login/admin/edit/<%= item.id %>" method="POST">
+            <div class="inputBoxes">
+                <input class="postTitle" type="text" name="name"  maxlength="25"  value="<%= item.name %>">
+                <input class="postTitle" type="number" step="any" name="price"  maxlength="25"  value="<%= item.price %>">
+                <input class="postTitle" type="number" step="1" name="quantity" maxlength="25"  value="<%= item.quantity %>">
+                <textarea class="postData" type="text" name="description"  value="<%= item.description %>"><%=item.description%></textarea>
+            </div>
+            <div class="submitBox">
+                <input type="submit" class="submitBoxButtons" value="Submit Edit">
+            </div>
+        </form>
+    </div>
+  </body>

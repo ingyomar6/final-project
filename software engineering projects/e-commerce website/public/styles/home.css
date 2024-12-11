@@ -1,0 +1,90 @@
+.b{
+    background-color: rgb(255, 173, 196);
+}
+
+.postpop{
+    background-image: url("../images/Cute\ Minimalist\ Flower\ Desktop\ Wallpaper.png");
+    
+}
+
+.butt{
+    background-color:rgb(255, 64, 118); 
+    color:rgb(252, 229, 235); 
+    border-style:solid;
+    border-color: rgba(255, 163, 243, 0.747); 
+    border-width: 7px;
+    font-weight: bolder;
+    font-size: 25px;
+    display: inline-flex;
+    align-items: center;
+    padding: 20px 45px ;
+    border-radius: 420px;
+}
+
+.h1{
+    color:white;
+    font-size: 25;
+    text-shadow: 4px 2px 3px rgb(255, 64, 198);
+}   
+
+.postsjumbotron{
+    background-color: rgba(255, 64, 118, 0.374);
+    border-color: rgb(247, 24, 88);
+}
+
+.postscontainer{
+    background-color: rgb(255, 173, 196);
+    border-radius: 20px;
+    padding:30px;
+}
+
+.posts{
+    margin:3% 0% 3% 0%;
+    background-color:rgb(251, 141, 172) ;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.edit_delete{
+    gap: 5px;
+    margin-left: auto; /* pushed my div to end of container*/
+    
+}
+
+.edit_delete *form{
+    border-radius: 10px;
+    border-style:solid;
+    display:flex;
+    align-items: center;
+    color: white;
+    border-color: rgb(243, 15, 80);
+    padding:5px;
+
+}
+
+.edit_delete button, #count, #newitem{
+    border-radius: 8px;
+    border-style:solid;
+    border-color: rgb(243, 15, 80);
+    background-color:rgb(243, 15, 80) ;
+    color:white;
+    padding: 2px 5px 2px 5px;
+
+}
+
+.postcontent {
+    border: 0px;
+    display:block;
+    justify-items: left;
+}
+
+
+#github{
+    text-decoration: none;
+    color: white;
+}
+
+
+
+
+

@@ -1,0 +1,49 @@
+.cart-container{
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px;
+    background-color:rgba(243, 15, 80, 0.584) ;
+    border-radius: 15%;
+}
+.order-button{
+    border-radius: 8px;
+    border-style:solid;
+    border-color: rgb(243, 15, 80);
+    background-color:rgb(243, 15, 80) ;
+    color:white;
+    padding: 2px 5px 2px 5px;
+}
+
+/* styling for the login page*/
+
+.Login-box{
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4%;
+    padding: 60px 100px;
+    background-color: rgb(255, 103, 151);
+    border-radius: 50px;
+    
+}
+
+.Login-box div{
+    display:flex;
+    justify-content: center;
+    padding: 7px;
+}
+
+.Login-box div input, .Login-box div button{
+    border-radius: 10px;
+    padding: 6px;
+    border-color: transparent;
+    background-blend-mode:lighten;
+    
+}
+
+#login-button{
+    padding: 5px 40px;
+}
+
+
