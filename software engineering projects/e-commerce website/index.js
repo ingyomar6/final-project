@@ -27,10 +27,10 @@ const transporter = nodemailer.createTransport({
 });
 
 const db = new pg.Client({
-  user:"postgres",
-  host:"localhost",
-  database:"E-commerce",
-  password:"11627Maiy*",
+  user:"project_db_x6k7_user",
+  host:"dpg-ctcra256l47c73ciemvg-a",
+  database:"project_db_x6k7",
+  password:"wdVoeEiVMqMooPtzxTH8AMFmVlJyAzv0",
   port:5432,
 })
 
